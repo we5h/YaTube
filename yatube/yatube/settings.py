@@ -27,28 +27,6 @@ LOGIN_REDIRECT_URL = 'posts:index'
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
-# LOGGING = {
-#     'version': 1,
-#     'filters': {
-#         'require_debug_true': {
-#             '()': 'django.utils.log.RequireDebugTrue',
-#         }
-#     },
-#     'handlers': {
-#         'console': {
-#             'level': 'DEBUG',
-#             'filters': ['require_debug_true'],
-#             'class': 'logging.StreamHandler',
-#         }
-#     },
-#     'loggers': {
-#         'django.db.backends': {
-#             'level': 'DEBUG',
-#             'handlers': ['console'],
-#         }
-#     }
-# }
-
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'onn%um89hx8=&6o2w)z6x21dbb$k1@*(+@*1+m#6jim)@04b54'
 
@@ -56,6 +34,8 @@ SECRET_KEY = 'onn%um89hx8=&6o2w)z6x21dbb$k1@*(+@*1+m#6jim)@04b54'
 DEBUG = True
 
 ALLOWED_HOSTS = [
+    'yatubenetwork.pythonanywhere.com',
+    'www.yatubenetwork.pythonanywhere.com',
     'localhost',
     '127.0.0.1',
     '[::1]',
@@ -79,6 +59,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'sorl.thumbnail',
+    'debug_toolbar',
 ]
 
 MIDDLEWARE = [
@@ -89,7 +70,12 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
+
+INTERNAL_IPS = [
+    '127.0.0.1',
+] 
 
 CACHES = {
     'default': {
